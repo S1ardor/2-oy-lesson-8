@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>2-oy lesson-8</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="./output.css">
+    </head>
+    <body class="bg-black">
+        <!-- header search qilish -->
+        <header>
+            <nav class="bg-black text-white fixed top-0 right-0 left-0 z-50">
+                <div class="container m-auto">
+                    <div
+                        class="header__amc-control flex items-center justify-between border-b border-gray-400">
+                        <div class="movies__items flex">
+                            <img class="max-w-17 size-20 mx-5"
+                                src="./images/amc-img.svg"
+                                alt="amc-img">
+                            <ul
+                                class="flex items-center gap-x-7 text-zinc-200">
+                                <li
+                                    class="hover:scale-105 cursor-pointer text-white transition-all">DOCS</li>
+                                <li
+                                    class="hover:scale-105 cursor-pointer text-white transition-all">COMPANY</li>
+                                <li
+                                    class="hover:scale-105 cursor-pointer text-white transition-all">INFORMATION</li>
+                                <select
+                                    class="js-selecmovies-select bg-black hover:cursor-pointer px-1 py-2">
+                                    <option class="bg-zinc-800"
+                                        value="more">MORE</option>
+                                    <option
+                                        value="animation">Animation</option>
+                                    <option class="hover:cursor-pointer"
+                                        value="sport">Sport</option>
+                                    <option value="drama">Drama</option>
+                                </select>
+                            </ul>
+                        </div>
+                        <form class="js-movies-form relative flex items-center">
+                            <input
+                                class="js-movies-input pl-3 p-2 rounded-sm w-64 bg-zinc-800"
+                                type="text"
+                                placeholder="Search...">
+                            <button class="absolute right-0 pr-2" type="submit">
+                                <i
+                                    class="fa-solid fa-magnifying-glass text-white"></i>
+                            </button>
+                        </form>
+                        <div class="login__buttons items-center">
+                            <i
+                                class="fa-solid fa-user-plus ml-2 mb-1 border-2 w-9 rounded-full p-2"></i>
+                            <button
+                                class="hover:border-b-2 ml-3 mr-2 py-0 transition-all">SIGN
+                                UP</button>
+                            <span class="text-xs text-blue-500">OR</span>
+                            <button
+                                class="border-gray-300 hover:border-b-2 mr-8 ml-2 transition-all">LOG
+                                IN</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- 1-section sortlash funkdionallik -->
+        <main>
+            <section>
+                <div class="container m-auto">
+                    <div class="ml-4 mt-[90px]">
+                        <form class="js-movies-functional-form">
+                            <select
+                                class="js-movies-categoriy text-zinc-200 w-72 p-2 rounded bg-zinc-800"
+                                name="categori">
+                                <option class="m-4 bg-zinc-700"
+                                    value="all">All</option>
+                            </select>
+                            <input
+                                class="js-min-year p-2 bg-zinc-800 w-64 text-zinc-200 placeholder:text-zinc-300 rounded mx-2"
+                                type="number" placeholder="Min year"
+                                aria-label="Min yera">
+                            <input
+                                class="js-max-year p-2 bg-zinc-800 w-64 text-zinc-200 placeholder:text-zinc-300 rounded mr-2"
+                                type="number" placeholder="Max year"
+                                aria-label="Max year">
+                            <button
+                                class="border border-zinc-800 bg-red-700 hover:bg-red-800 text-white p-2 px-4 rounded">Sort</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2-section movies render -->
+            <section>
+                <div class="container m-auto">
+                    <div>
+                        <p
+                            class="js-movies-not-search hidden text-red-700 bg-red-300 w-[80%] m-auto mt-3 p-2 rounded text-center">NOT
+                            FOUND
+                            ?</p>
+                        <ul
+                            class="js-movies-result text-white mt-9 flex items-center justify-center  gap-x-11 flex-wrap gap-y-8">
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- modal-->
+            <div class="js-modal hidden relative z-50"
+                aria-labelledby="modal-title"
+                role="dialog"
+                aria-modal="true">
+                <div
+                    class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                    <div
+                        class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                        <div
+                            class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
+                            <div class="bg-white px-5 pb-4 pt-5 sm:p-6">
+                                <div class="sm:flex sm:items-start">
+                                    <div
+                                        class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                        <h3
+                                            class="js-modal-title mb-5 text-2xl font-semibold leading-6 text-gray-900"
+                                            id="modal-title"></h3>
+
+                                        <div class="mt-2 flex gap-x-5">
+                                            <div>
+                                                <iframe class="js-moda-video"
+                                                    width="560" height="315"
+                                                    src="https://www.youtube-nocookie.com/embed/erLk59H86ww"
+                                                    title="YouTube video player"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowfullscreen></iframe>
+                                            </div>
+                                            <div>
+                                                <!-- js modal link  -->
+                                                <div
+                                                    class="flex justify-between">
+                                                    <div>
+                                                        <i
+                                                            class="fa-solid fa-star text-yellow-500"></i>
+                                                        <span
+                                                            class="js-modal-runtime"></span>
+                                                    </div>
+                                                    <div>
+                                                        <i
+                                                            class="fa-solid fa-calendar-days"></i>
+                                                        <span
+                                                            class="js-modal-year"></span>
+                                                    </div>
+                                                    <div>
+                                                        <i
+                                                            class="fa-solid fa-clock"></i>
+                                                        <span
+                                                            class="js-modal-hour"></span>
+                                                    </div>
+                                                </div>
+                                                <h5
+                                                    class="js-modal-catigory mt-7 mb-2"></h5>
+                                                <p
+                                                    class="js-modal-summary text-sm text-gray-500"></p>
+
+                                                <button
+                                                    class="js-modal-link text-blue-600 border-b-2 border-blue-600 absolute bottom-6">
+                                                    <a
+                                                        class="js-movies-link"
+                                                        href="#"
+                                                        target="_blank">Show
+                                                        on IMDb</a>
+                                                    <i
+                                                        class="fa-solid fa-up-right-from-square ml-1 text-blue-600"></i>
+                                                </button>
+                                                <!-- modal hidden btn -->
+                                                <button
+                                                    class="js-modal-control absolute top-0 right-0 bg-red-600 px-5 py-2 rounded-bl-lg text-white"><i
+                                                        class="js-modal-control fa-solid fa-x"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <template class="js-template">
+                <li
+                    class="border border-zinc-800 bg-zinc-800 w-[270px] p-2 rounded hover:cursor-pointer hover:scale-105 ease-in duration-200">
+                    <img
+                        class="js-movies-img min-h-[190px] rounded m-auto w-full"
+                        src
+                        alt>
+                    <h3
+                        class="js-movies-title text-3xl mt-2"></h3>
+                    <div
+                        class="italic flex items-center">
+                        <i
+                            class="fa-regular fa-star text-yellow-400"></i>
+                        <span
+                            class="js-movies-rating text-yellow-400 ml-2"></span>
+                        <i class="fa-regular fa-calendar-days ml-4"></i>
+                        <time class="js-movies-year ml-2"></time>
+                        <i class="fa-regular fa-clock ml-4"></i>
+                        <time class="js-movies-runtime ml-2"></time>
+                    </div>
+                    <h5
+                        class="js-movies-categories text-[20px] mb-2"></h5>
+                    <button
+                        class="js-modal-btn w-full p-2 bg-emerald-800 rounded mb-3"><i
+                            class="fa-solid fa-circle-info"></i>
+                        More
+                        info</button>
+                    <button
+                        class="w-full p-2 bg-yellow-600 rounded"> <i
+                            class="fa-regular fa-address-book"></i>
+                        Add</button>
+                </li>
+            </template>
+        </main>
+        <script src="./js/movies.js"></script>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
